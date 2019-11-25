@@ -33,6 +33,11 @@ WheelDown::         _WheelAction(false)
 ; LWin & WheelDown::  AltTab
 ; #1::^#left
 ; #2::^#right
+
+; Re - override system shortcuts to add toggle desktop icon support
+; 重新覆盖系统的快捷键 添加切换桌面图标支持
+^#left::_CommonVirtualDesktopAction(true)
+^#right::_CommonVirtualDesktopAction(false)
 #1::_CommonVirtualDesktopAction(true)
 #2::_CommonVirtualDesktopAction(false)
 LWin & WheelUp::_CommonVirtualDesktopAction(true)
