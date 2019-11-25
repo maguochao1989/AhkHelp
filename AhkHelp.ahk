@@ -31,8 +31,14 @@ WheelDown::         _WheelAction(false)
 ; win 按键 + 滚轮触发 切换虚拟桌面
 ; LWin & WheelUp::    ShiftAltTab
 ; LWin & WheelDown::  AltTab
-LWin & WheelUp::     ^#left
-LWin & WheelDown::   ^#right
+; #1::^#left
+; #2::^#right
+#1::_CommonVirtualDesktopAction(true)
+#2::_CommonVirtualDesktopAction(false)
+LWin & WheelUp::_CommonVirtualDesktopAction(true)
+LWin & WheelDown::_CommonVirtualDesktopAction(false)
+; LWin & WheelUp::     ^#left
+; LWin & WheelDown::   ^#right
 
 ; ctrl + 滚轮 调整窗口大小
 ^+WheelUp::         _ReSizeWin(true)
@@ -107,6 +113,7 @@ _IsHoverWinTitleBar(relativeX, relativeY, barWidth, barHeight) {
 _IsHoverWinParticularRect(relativeX, relativeY, minX, maxX, minY, maxY) {
     return (relativeX>=minX && relativeX<=maxX && relativeY>=minY && relativeY<=maxY)
 }
+; Universal switch TAB;CTRL + TAB/CTRL + shift + TAB
 ; 通用的切换标签 ;ctrl + tab / ctrl + shift + tab
 _CommonTabAction(flag) {
     print(flag)
@@ -115,6 +122,7 @@ _CommonTabAction(flag) {
     else
         SendInput, ^{tab}
 }
+; Need Ctrl + PgUp/Ctrl + PgDn toggle label
 ; 需要 Ctrl + PgUp / Ctrl + PgDn 切换标签
 _CommonPGTabAction(flag) {
     if (flag)
@@ -152,11 +160,19 @@ _CommonVerticalDirectionAction(flag) {
     else
         SendInput, {Down}
 }
+;Currently only supports 2 virtual desktops
+;目前只支持 2 个虚拟桌面
 _CommonVirtualDesktopAction(flag) {
-    if (flag)
+    if (flag){
         SendInput, #^{Left}     ;Win+Ctrl+左
-    else
+        Menu, TRAY, Icon,  d1.ico
+        return
+    }
+    else{
         SendInput, #^{Right}	;Win+Ctrl+右
+        Menu, TRAY, Icon,  d2.ico
+        return
+    }
 }
 
 
