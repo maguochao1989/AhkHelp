@@ -165,12 +165,12 @@ _CommonVerticalDirectionAction(flag) {
 _CommonVirtualDesktopAction(flag) {
     if (flag){
         SendInput, #^{Left}     ;Win+Ctrl+左
-        Menu, TRAY, Icon,  d1.ico
+        Menu, TRAY, Icon,  ico/d1.ico
         return
     }
     else{
         SendInput, #^{Right}	;Win+Ctrl+右
-        Menu, TRAY, Icon,  d2.ico
+        Menu, TRAY, Icon,  ico/d2.ico
         return
     }
 }
