@@ -274,34 +274,34 @@ _ReSizeWin(flag) {
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-+!Space:: _PauseChromePaly()
-_PauseChromePaly(){
-    _CommonGet()
-    MouseMove, 700, 1600, 0 ;, R      ;DllCall("SetCursorPos", "int", 1200, "int", 2080)  ;
-    Click
-    MouseMove, posX, posY, 0 ;, R
-    if (processName != "chrome.exe"){
-        Click
-        SendInput , {Esc} ;;;如果在idea alt+shift+click 会多处光标 , 发送esc 退出多处光标
-    }
-}
-+!J::_SubChromePlay() ;; 播放 --
-_SubChromePlay(){
-    _CommonGet()
-    MouseMove, 700, 1600,0 
-    Click
-    Send z
-    MouseMove, posX, posY, 0 ;, R
-}
-+!K::_PlusChromePlay() ;; 播放 ++
-_PlusChromePlay(){
-    _CommonGet()
-    MouseMove, 700, 1600,0 
-    Click
-    Send x
-    MouseMove, posX, posY, 0 ;, R
-}
-
+;+!Space:: _PauseChromePaly()
+;_PauseChromePaly(){
+;    _CommonGet()
+;    MouseMove, 700, 1600, 0 ;, R      ;DllCall("SetCursorPos", "int", 1200, "int", 2080)  ;
+;    Click
+;    MouseMove, posX, posY, 0 ;, R
+;    if (processName != "chrome.exe"){
+;        Click
+;        SendInput , {Esc} ;;;如果在idea alt+shift+click 会多处光标 , 发送esc 退出多处光标
+;    }
+;}
+;+!J::_SubChromePlay() ;; 播放 --
+;_SubChromePlay(){
+;    _CommonGet()
+;    MouseMove, 700, 1600,0 
+;    Click
+;    Send z
+;    MouseMove, posX, posY, 0 ;, R
+;}
+;+!K::_PlusChromePlay() ;; 播放 ++
+;_PlusChromePlay(){
+;    _CommonGet()
+;    MouseMove, 700, 1600,0 
+;    Click
+;    Send x
+;    MouseMove, posX, posY, 0 ;, R
+;}
+;
 
 
 
