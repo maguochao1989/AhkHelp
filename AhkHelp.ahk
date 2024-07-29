@@ -328,9 +328,11 @@ _WheelAction(flag) {
         return _CommonVolumeAction(flag)  ; 音量 屏幕右下角[200,200]
     }  else if (_IsHoverScreenParticularRect(posX, posY, 0, A_ScreenHeight-30, 200, A_ScreenHeight)) { 
         ; return _CommonVolumeAction(flag)  ;  屏幕左下角[200,200]
-    } else if (_IsHoverWinTitleBar(relativeX, relativeY, winWidth, 80)){ ; 在标题栏上
-        _SwitchTab(flag) 
-    } else if (flag)
+    } 
+    ;else if (_IsHoverWinTitleBar(relativeX, relativeY, winWidth, 80)){ ; 在标题栏上
+    ;    _SwitchTab(flag) 
+    ;} 
+    else if (flag)
         SendInput, {WheelUp}
     else
         SendInput, {WheelDown}
